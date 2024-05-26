@@ -5,11 +5,11 @@ s3 = boto3.client('s3')
 def lambda_handler(event, context):
     try:
         
-        source_bucket = 'unique-s3-start'
+        source_bucket = 'my-s3-start'
         
         object_key = event['Records'][0]['s3']['object']['key']
               
-        destination_bucket = 'unique-s3-finish'
+        destination_bucket = 'my-s3-finish'
         
         source_object_path = f"s3://{source_bucket}/{object_key}"
         
