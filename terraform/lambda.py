@@ -7,18 +7,13 @@ def lambda_handler(event, context):
         
         source_bucket = 'unique-s3-start'
         
-        
         object_key = event['Records'][0]['s3']['object']['key']
-        
-        
+              
         destination_bucket = 'unique-s3-finish'
-        
         
         source_object_path = f"s3://{source_bucket}/{object_key}"
         
-        
         destination_object_path = f"s3://{destination_bucket}/{object_key}"
-        
         
         copy_source = {'Bucket': source_bucket, 'Key': object_key}
         s3.copy_object(CopySource=copy_source, Bucket=destination_bucket, Key=object_key)
